@@ -80,6 +80,7 @@ public class Maze : MonoBehaviour
                 myPos = new Vector3(initialPos.x + (j * wallLength), -0.5f, initialPos.z + (i * wallLength) - wallLength / 2);
                 tempFloor = Instantiate(floor, myPos, Quaternion.identity) as GameObject;
                 tempFloor.transform.parent = wallHolder.transform;
+                tempFloor.GetComponent<BoxCollider>().isTrigger=true;
             }
         }
 
