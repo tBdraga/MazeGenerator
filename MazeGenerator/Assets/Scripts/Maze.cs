@@ -15,6 +15,10 @@ public class Maze : MonoBehaviour
         public GameObject south;      //4
     }
 
+    public class Node {
+
+    }
+
     public GameObject wall;
     public GameObject floor;
     public float wallLength = 1.0f;
@@ -24,6 +28,9 @@ public class Maze : MonoBehaviour
     private Vector3 initialPos;
 
     private GameObject wallHolder;
+
+    //[SerializeField]
+    public List<GameObject> floorTiles;
 
     public Cell[] cells;
     private int currentCell=0;
@@ -39,7 +46,7 @@ public class Maze : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateWalls();    
+        CreateWalls();
     }
 
 
@@ -79,10 +86,13 @@ public class Maze : MonoBehaviour
             {
                 myPos = new Vector3(initialPos.x + (j * wallLength), -0.5f, initialPos.z + (i * wallLength) - wallLength / 2);
                 tempFloor = Instantiate(floor, myPos, Quaternion.identity) as GameObject;
-                tempFloor.transform.parent = wallHolder.transform;
+                //tempFloor.transform.parent = wallHolder.transform;
                 tempFloor.GetComponent<BoxCollider>().isTrigger=true;
+                floorTiles.Add(tempFloor);
             }
         }
+
+        //Debug.Log("Added floor tiles" + floorTiles.Capacity);
 
         CreateCells();
     }

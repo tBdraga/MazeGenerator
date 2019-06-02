@@ -181,6 +181,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &249911635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249911637}
+  - component: {fileID: 249911636}
+  m_Layer: 0
+  m_Name: PathFinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &249911636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249911635}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3af903e8d210164082f4cde4f05ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mazeGameObject: {fileID: 431049651}
+  selectionGameObject: {fileID: 1443566520}
+  material: {fileID: 2100000, guid: 650e63115ea99514db52bafee295c0a0, type: 2}
+  floorTiles: []
+--- !u!4 &249911637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249911635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2637063, y: -12.297469, z: 3.2138429}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431049651
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +239,7 @@ GameObject:
   - component: {fileID: 431049653}
   - component: {fileID: 431049652}
   m_Layer: 0
-  m_Name: Maze Generator
+  m_Name: MazeGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,8 +260,9 @@ MonoBehaviour:
   wall: {fileID: 319101901178924666, guid: b7016019c4e589c45b36a8e9d5cb1e12, type: 3}
   floor: {fileID: 4565359377651704456, guid: 812ecfb9a50368147a525b8f2bef04cc, type: 3}
   wallLength: 1
-  xSize: 15
-  ySize: 15
+  xSize: 10
+  ySize: 10
+  floorTiles: []
   cells: []
 --- !u!4 &431049653
 Transform:
@@ -373,3 +421,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialStartPoint: {fileID: 2100000, guid: 1f6c15c84874c22479232a3a860532a6, type: 2}
   materialEndPoint: {fileID: 2100000, guid: a88c8e97f0e87894d922be0cb7476b08, type: 2}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  finishPosition: {x: 0, y: 0, z: 0}
+  spawnedBenza: {fileID: 7020649343818115922, guid: 5088e51512ebdcb41ae1aaacc66ad7ae,
+    type: 3}
+  pathFinder: {fileID: 249911635}
